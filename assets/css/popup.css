@@ -1,0 +1,373 @@
+/* Kontener popupa */
+#automind-pop {
+    position: fixed;
+    z-index: 99999;
+    bottom: 18px;
+    transition: opacity .2s ease;
+    opacity: 0;
+}
+
+#automind-pop.right {
+    right: 18px;
+}
+
+#automind-pop.left {
+    left: 18px;
+}
+
+#automind-pop.am-ready {
+    opacity: 1;
+}
+
+/* Bąbelek */
+#automind-pop .am-pop-bubble {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #0b5cab;
+    color: #fff;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 26px rgba(11, 92, 171, .35);
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .2s;
+}
+
+#automind-pop .am-pop-bubble:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(11, 92, 171, .42);
+}
+
+#automind-pop .am-pop-bubble:focus {
+    outline: 2px solid #3b82f6;
+}
+
+#automind-pop .am-pop-bubble svg {
+    display: block;
+    width: 32px !important;
+    height: 32px !important;
+}
+
+/* Panel */
+#automind-pop .am-pop-panel {
+    position: absolute;
+    bottom: 72px;
+    width: 360px;
+    max-height: 70vh;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .18);
+    overflow: hidden;
+    display: none;
+}
+
+#automind-pop.right .am-pop-panel {
+    right: 0;
+}
+
+#automind-pop.left .am-pop-panel {
+    left: 0;
+}
+
+#automind-pop.am-open .am-pop-panel {
+    display: block;
+}
+
+/* Header */
+#automind-pop .am-pop-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+    background: #f8fafc;
+}
+
+#automind-pop .am-pop-title {
+    font-weight: 600;
+}
+
+#automind-pop .am-pop-close {
+    background: transparent;
+    border: 0;
+    font-size: 18px;
+    cursor: pointer;
+    color: #444;
+}
+
+/* Body */
+#automind-pop .am-pop-body {
+    padding: 10px;
+}
+
+#automind-pop .automind-widget {
+    max-width: unset;
+    border: 0;
+    padding: 0;
+}
+
+/* Formularz w kolumnie */
+#automind-pop .automind-form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+#automind-pop .automind-form textarea {
+    width: 100%;
+    min-height: 60px;
+    resize: vertical;
+}
+
+#automind-pop .automind-actions {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    margin-top: 2px;
+}
+
+#automind-pop .automind-actions .button {
+    flex: 1;
+}
+
+/* Mobile: fullscreen dock */
+@media (max-width: 540px) {
+    #automind-pop {
+        bottom: 14px;
+        right: 14px;
+        left: auto;
+    }
+
+    #automind-pop .am-pop-panel {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 76px;
+        top: 10px;
+        width: auto;
+        max-height: none;
+        border-radius: 12px;
+    }
+}
+#automind-pop .am-pop-bubble {
+    color: #fff;
+}
+
+/* dla SVG (fill:currentColor) */
+#automind-pop .am-pop-bubble .am-pop-ico {
+    display: block;
+    width: var(--am-icon-size, 32px);
+    height: var(--am-icon-size, 32px);
+    pointer-events: none;
+}
+/* Ikona w bąbelku — zawsze widoczna i duża */
+#automind-pop .am-pop-bubble {
+    color: #fff;
+    font-size: 0;
+    line-height: 0;
+}
+
+#automind-pop .am-pop-bubble .am-pop-ico {
+    display: block;
+    width: var(--am-icon-size, 32px) !important;
+    height: var(--am-icon-size, 32px) !important;
+    pointer-events: none;
+}
+
+/* Wymuś biały fill dla domyślnego SVG (gdy przeglądarka nie dziedziczy currentColor) */
+#automind-pop .am-pop-bubble .am-pop-ico path,
+#automind-pop .am-pop-bubble .am-pop-ico circle,
+#automind-pop .am-pop-bubble .am-pop-ico rect,
+#automind-pop .am-pop-bubble .am-pop-ico polygon {
+    fill: #fff !important;
+    stroke: none !important;
+}
+
+/* IMG (PNG/SVG) — dopasuj zawartość */
+#automind-pop .am-pop-bubble img.am-pop-ico {
+    object-fit: contain;
+    border: 0;
+    filter: none;
+}
+#automind-pop .am-pop-bubble {
+    color: #fff;
+    font-size: 0;
+    line-height: 0;
+    position: relative;
+}
+
+#automind-pop .am-pop-bubble .am-pop-ico {
+    display: block;
+    width: var(--am-icon-size, 32px) !important;
+    height: var(--am-icon-size, 32px) !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 88% 88% !important;
+    /* zwiększ do 100% jeśli chcesz wypełnić koło */
+    pointer-events: none;
+}
+/* Ikona = cały bąbelek, bez koła/tła */
+#automind-pop .am-pop-bubble{
+  width: var(--am-icon-size, 48px) !important;
+  height: var(--am-icon-size, 48px) !important;
+  padding: 0 !important;
+  background: transparent !important; /* usuwa czarne koło */
+  border: 0 !important;
+  box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  -webkit-appearance: none;
+  appearance: none;
+}
+#automind-pop .am-pop-ico{
+  width: 100% !important;
+  height: 100% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important; /* wypełnia cały bąbelek */
+}
+/* Większy odstęp od dołu na mobile, żeby nie nachodził na footer */
+@media (max-width: 782px){
+  #automind-pop{
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 72px) !important; /* dostosuj: 64–96px */
+  }
+}
+
+/* (opcjonalnie) gdy widoczny pasek admina na mobile – jeszcze wyżej */
+@media (max-width: 782px){
+  body.admin-bar #automind-pop{
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 104px) !important;
+  }
+}
+/* Tylko ikona — bez tła/ringa/cienia w każdej interakcji */
+#automind-pop .am-pop-bubble,
+#automind-pop .am-pop-bubble:hover,
+#automind-pop .am-pop-bubble:active,
+#automind-pop .am-pop-bubble:focus,
+#automind-pop .am-pop-bubble:focus-visible {
+    width: var(--am-icon-size, 48px) !important;
+    height: var(--am-icon-size, 48px) !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    transform: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ikona jako tło – pełne wypełnienie obszaru przycisku */
+#automind-pop .am-pop-ico {
+    width: 100% !important;
+    height: 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+}
+#automind-pop {
+    position: fixed;
+}
+
+#automind-pop .am-pop-tip {
+    position: absolute;
+    bottom: calc(var(--am-icon-size, 48px) + 16px);
+    right: 0;
+    max-width: 240px;
+    background: #1f2937;
+    /* gray-800 */
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.3;
+    padding: 8px 10px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: 2;
+}
+
+#automind-pop .am-pop-tip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 16px;
+    border: 6px solid transparent;
+    border-top-color: #1f2937;
+}
+
+#automind-pop.am-tip .am-pop-tip {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+#automind-pop .am-tip-close {
+    position: absolute;
+    top: 2px;
+    right: 6px;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    line-height: 1;
+}
+/* === Automind: jasny dymek powitalny nad ikoną === */
+#automind-pop .am-pop-tip {
+    position: absolute;
+    bottom: calc(var(--am-icon-size, 48px) + 32px) !important;
+    /* wyżej niż było */
+    right: 0;
+    min-width: 240px;
+    max-width: 320px;
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 13px;
+    line-height: 1.35;
+    padding: 10px 12px !important;
+    border: 1px solid #e5e7eb !important;
+    /* jasna szara ramka */
+    border-radius: 10px !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    opacity: 0;
+    transform: translateY(6px);
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+    z-index: 2;
+}
+
+/* Bez grotu – czysty prostokąt */
+#automind-pop .am-pop-tip::after {
+    display: none !important;
+}
+
+/* Widoczność sterowana klasą .am-tip (JS) */
+#automind-pop.am-tip .am-pop-tip {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Krzyżyk zamknięcia */
+#automind-pop .am-tip-close {
+    position: absolute;
+    top: 1px;
+    right: 6px;
+    border: 0;
+    background: transparent;
+    color: #6b7280;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 0,1;
+    padding-top: 8px;
+}

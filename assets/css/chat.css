@@ -1,0 +1,278 @@
+.automind-widget {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    max-width: 720px;
+    background: #fff
+}
+
+.automind-messages {
+    min-height: 120px;
+    max-height: 420px;
+    overflow: auto;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px
+}
+
+/* Bąbelki */
+.am-msg {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px
+}
+
+.am-msg.bot {
+    justify-content: flex-start
+}
+
+.am-msg.user {
+    justify-content: flex-end
+}
+
+.am-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 12px;
+    flex: 0 0 28px
+}
+
+.am-msg.user .am-avatar {
+    background: #111;
+    color: #fff
+}
+
+.am-bubble {
+    max-width: 80%;
+    padding: 10px 12px;
+    border-radius: 14px;
+    line-height: 1.35;
+    word-wrap: break-word;
+    white-space: pre-wrap
+}
+
+.am-msg.bot .am-bubble {
+    background: #f1f5f9;
+    color: #111;
+    border: 1px solid #e5e7eb;
+    border-top-left-radius: 4px
+}
+
+.am-msg.user .am-bubble {
+    background: #111;
+    color: #fff;
+    border-top-right-radius: 4px
+}
+
+.automind-form {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end
+}
+
+.automind-form textarea {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    resize: vertical;
+    min-height: 44px;
+    font-family: inherit
+}
+
+.automind-actions {
+    display: flex;
+    gap: 6px
+}
+
+.automind-form button {
+    padding: 8px 12px;
+    cursor: pointer
+}
+
+.automind-form .automind-clear {
+    background: #f3f4f6;
+    color: #111;
+    border: 1px solid #ddd
+}
+
+.automind-form .automind-clear:hover {
+    background: #e9eaee
+}
+
+.automind-hint {
+    margin-top: 2px;
+    color: #666;
+    font-size: 11px
+}
+
+.automind-note {
+    margin-top: 6px;
+    color: #666;
+    font-size: 12px
+}
+
+.am-msg.typing .am-bubble {
+    background: #f8fafc;
+    color: #555;
+    font-style: italic
+}
+.am-sources {
+    margin: 4px 36px 8px;
+    color: #555;
+    font-size: 12px
+}
+
+.am-sources a {
+    color: #0b5cab;
+    text-decoration: none
+}
+
+.am-sources a:hover {
+    text-decoration: underline
+}
+@media (max-width: 540px) {
+    .automind-form {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .automind-form textarea {
+        width: 100%;
+        min-height: 56px
+    }
+
+    .automind-actions {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        margin-top: 6px
+    }
+
+    .automind-actions .button {
+        flex: 1
+    }
+}
+.am-sources {
+    margin: 4px 36px 8px;
+    color: #555;
+    font-size: 12px
+}
+
+.am-sources a {
+    color: #0b5cab;
+    text-decoration: none
+}
+
+.am-sources a:hover {
+    text-decoration: underline
+}
+@media (max-width: 540px) {
+    .automind-form {
+        flex-direction: column;
+        align-items: stretch
+    }
+
+    .automind-form textarea {
+        width: 100%;
+        min-height: 56px
+    }
+
+    .automind-actions {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        margin-top: 6px
+    }
+
+    .automind-actions .button {
+        flex: 1
+    }
+}
+/* RTL polish: jeśli przeglądarka wykryje RTL w kontenerze/messages */
+.automind-widget [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+.automind-widget [dir="rtl"] textarea {
+    text-align: right;
+}
+/* Nazwy nad wiadomościami */
+.automind-widget .am-row {
+    margin: 10px 0;
+}
+
+.automind-widget .am-label {
+    font-size: 12px;
+    line-height: 1.1;
+    color: #6b7280;
+    /* neutral-500 */
+    font-weight: 500;
+    margin: 0 0 4px 4px;
+}
+
+/* Ukryj kółka/inicjały, jeśli występują */
+.automind-widget .am-avatar,
+.automind-widget .am-initial,
+.automind-widget .am-badge {
+    display: none !important;
+}
+.automind-widget .am-label {
+    font-size: 12px;
+    line-height: 1.1;
+    color: #6b7280;
+    font-weight: 500;
+    margin: 0 0 4px 4px;
+}
+
+.automind-widget .am-avatar,
+.automind-widget .am-initial,
+.automind-widget .am-badge {
+    display: none !important;
+}
+/* === Automind: label nad bąbelkiem (nadpisuje układ wierszy) === */
+.automind-messages .am-msg {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    /* domyślnie bot po lewej */
+    gap: 4px !important;
+}
+
+/* Użytkownik po prawej – label i bubble wyrównane do końca */
+.automind-messages .am-msg.user {
+    align-items: flex-end !important;
+}
+
+/* Label nad wiadomością */
+.automind-widget .am-label {
+    font-size: 12px;
+    line-height: 1.1;
+    color: #6b7280;
+    /* neutral-500 */
+    font-weight: 500;
+    margin: 0 0 4px 4px;
+}
+
+/* Dla użytkownika delikatne wyrównanie i margines po prawej */
+.automind-widget .am-msg.user .am-label {
+    margin: 0 4px 4px 0;
+    text-align: right;
+}
+
+/* Schowaj awatary/inicjały (stary układ) */
+.automind-widget .am-avatar,
+.automind-widget .am-initial,
+.automind-widget .am-badge {
+    display: none !important;
+}

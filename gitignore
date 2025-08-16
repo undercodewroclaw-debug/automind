@@ -1,0 +1,23 @@
+# General
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Node/Composer
+node_modules/
+vendor/
+npm-debug.log*
+yarn.lock
+package-lock.json
+
+# Artifacts
+*.zip
+*.log
+wp-content/debug.log
+
+# VCS
+.svn/
